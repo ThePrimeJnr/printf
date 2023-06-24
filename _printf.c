@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 		i++;
 	}
 
-	_putchar('\n');
+	_putchar('\0');
 
 	return (i);
 }
