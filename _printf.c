@@ -11,7 +11,10 @@ int _printf(const char *format, ...)
 	int i = 0;
 
 	while (format && format[i])
+	{
 		_putchar(format[i]);
+		i++;
+	}
 
 	_putchar('\n');
 
