@@ -10,11 +10,16 @@ int _putstr(char *str)
 {
 	int i = 0;
 
-	while (str && str[i])
+	if (str = NULL)
+		_putstr("(null)");
+	else
 	{
-		_putchar(str[i]);
-		i++;
+		while (str[i])
+		{
+			_putchar(str[i]);
+			i++;
+		}
 	}
 
-	return (--i);
+		return (i);
 }
