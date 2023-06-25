@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdlib.h>
 #include <stdarg.h>
 
 /**
@@ -13,6 +14,9 @@ int _printf(const char *format, ...)
 	int i = 0, len = 0;
 	char *str_temp;
 
+	str_temp = (char *)malloc(1024);
+		if (str_temp == NULL)
+			return 0;
 	va_start(ls_args, format);
 	while (format && format[i])
 	{
@@ -25,6 +29,9 @@ int _printf(const char *format, ...)
 			i++;
 			switch (format[i])
 			{
+				case '%':
+					_putchar('%');
+					break;
 				case 'c':
 					_putchar(va_arg(ls_args, int));
 					break;
@@ -46,5 +53,7 @@ int _printf(const char *format, ...)
 	}
 	va_end(ls_args);
 	_putchar('\0');
+
+	free(str_temp);
 	return (len);
 }
