@@ -1,7 +1,5 @@
 #include "main.h"
 #include <stdarg.h>
-#include <stdlib.h>
-#include <stdio.h>
 
 /**
  * _printf - Prints to the standar output like regular printf
