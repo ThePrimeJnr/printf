@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdlib.h>
-#include <stdarg.h>
 
 /**
  * _printf - Prints to the standar output like regular printf
@@ -14,9 +12,6 @@ int _printf(const char *format, ...)
 	int i = 0, len = 0;
 	char *str_temp;
 
-	str_temp = (char *)malloc(1024);
-		if (str_temp == NULL)
-			return 0;
 	va_start(ls_args, format);
 	while (format && format[i])
 	{
@@ -26,8 +21,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			i++;
-			switch (format[i])
+			switch (format[i++])
 			{
 				case '%':
 					_putchar('%');
@@ -53,7 +47,5 @@ int _printf(const char *format, ...)
 	}
 	va_end(ls_args);
 	_putchar('\0');
-
-	free(str_temp);
 	return (len);
 }
