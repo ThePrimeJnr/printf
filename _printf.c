@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <stdio.h>
 /**
  * _printf - Prints to the standar output like regular printf
  * @format: The string to be printed adn its format specifiers
@@ -28,7 +28,8 @@ int _printf(const char *format, ...)
 						len += _putchar(va_arg(ls_args, int));
 						break;
 					case 's':
-						len += _putstr(va_arg(ls_args, char *));
+						str_temp = va_arg(ls_args, char *);
+						len += _printf(str_temp);
 						break;
 					case '%':
 						len += _putchar('%');

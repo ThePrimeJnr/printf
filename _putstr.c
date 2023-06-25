@@ -10,8 +10,8 @@ int _putstr(char *str)
 {
 	int i = 0;
 
-	if (str = NULL)
-		_putstr("(null)");
+	if (str == NULL)
+		i = _putstr("(null)");
 	else
 	{
 		while (str[i])
