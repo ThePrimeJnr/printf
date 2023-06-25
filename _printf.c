@@ -13,37 +13,47 @@ int _printf(const char *format, ...)
 	char *str_temp;
 
 	va_start(ls_args, format);
-	while (format && format[i])
+	if (format)
 	{
-		if (format[i] != '%')
-			_putchar(format[i]);
-		else
+		while (format && format[i])
 		{
-			i++;
-			switch (format[i])
+			if (format[i] != '%')
+				_putchar(format[i]);
+			else
 			{
-				case 'c':
-					_putchar(va_arg(ls_args, int));
-					break;
-				case 's':
-					str_temp = va_arg(ls_args, char *);
-					if (str_temp != NULL)
-					{
-						len += _putstr(str_temp);
+				i++;
+				switch (format[i])
+				{
+					case 'c':
+						_putchar(va_arg(ls_args, int));
 						break;
-					}
-					len += _putstr("(Null)");
-					break;
-				case '%':
-					_putchar('%');
-					break;
-				default:
-					break;
+					case 's':
+						str_temp = va_arg(ls_args, char *);
+						if (str_temp != NULL)
+						{
+							len += _putstr(str_temp);
+							break;
+						}
+						len += _putstr("(Null)");
+						break;
+					case '%':
+						_putchar('%');
+						break;
+					case '\0':
+						return (-1);
+					default:
+						_putchar('%');
+						_putchar(format[i]);
+						len++;
+						break;
+				}
 			}
+			i++;
+			len++;
 		}
-		i++;
-		len++;
 	}
+	else
+		return (-1);
 	va_end(ls_args);
 
 	return (len);
