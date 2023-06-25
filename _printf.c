@@ -33,6 +33,14 @@ int _printf(const char *format, ...)
 	return (len);
 }
 
+/**
+ * spec_handler - handles the specifier passed to _printf
+ *
+ * @ls_args: List of variadic arguments
+ * @spec: the specifier after %
+ *
+ * Return: length of handle argument
+ */
 int spec_handler (va_list ls_args, char spec)
 {
 	int len = 0;
