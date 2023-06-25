@@ -16,16 +16,12 @@ int _printf(const char *format, ...)
 	while (format && format[i])
 	{
 		if (format[i] != '%')
-		{
 			_putchar(format[i]);
-		}
 		else
 		{
-			switch (format[i++])
+			i++;
+			switch (format[i])
 			{
-				case '%':
-					_putchar('%');
-					break;
 				case 'c':
 					_putchar(va_arg(ls_args, int));
 					break;
@@ -37,6 +33,9 @@ int _printf(const char *format, ...)
 						break;
 					}
 					len += _putstr("(Null)");
+					break;
+				case '%':
+					_putchar('%');
 					break;
 				default:
 					break;
