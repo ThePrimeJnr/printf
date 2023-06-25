@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 			i++;
 			if (!format[i])
 				return (-1);
-			len += spec_handler(ls_args, format[i]);
+			len += _spec_handler(ls_args, format[i]);
 		}
 		i++;
 	}
@@ -34,17 +34,16 @@ int _printf(const char *format, ...)
 }
 
 /**
- * spec_handler - handles the specifier passed to _printf
+ * _spec_handler - handles the specifier passed to _printf
  *
  * @ls_args: List of variadic arguments
  * @spec: the specifier after %
  *
  * Return: length of handle argument
  */
-int spec_handler (va_list ls_args, char spec)
+int _spec_handler (va_list ls_args, char spec)
 {
 	int len = 0;
-	char *str_temp;
 
 	switch (spec)
 	{
@@ -52,8 +51,7 @@ int spec_handler (va_list ls_args, char spec)
 			len += _putchar(va_arg(ls_args, int));
 			break;
 		case 's':
-			str_temp = va_arg(ls_args, char *);
-			len += _putstr(str_temp);
+			len += _putstr(va_arg(ls_args, char *));
 			break;
 		case '%':
 			len += _putchar('%');

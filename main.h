@@ -7,6 +7,6 @@
 int _putchar(char c);
 int _printf(const char *format, ...);
 int _putstr(char *str);
-int spec_handler (va_list ls_args, char spec);
+int _spec_handler (va_list ls_args, char spec);
 
 #endif /* PRINTF_H */
