@@ -10,13 +10,17 @@
 int _printf(const char *format, ...)
 {
 	va_list ls_args;
-	int i = 0, c;
+	int i = 0, len = 0;
 	char *str_temp;
 
 	va_start(ls_args, format);
 	while (format && format[i])
 	{
-		if (format[i] == '%')
+		if (format[i] != '%')
+		{
+			_putchar(format[i]);
+		}
+		else
 		{
 			i++;
 			switch (format[i])
@@ -28,23 +32,19 @@ int _printf(const char *format, ...)
 					str_temp = va_arg(ls_args, char *);
 					if (str_temp != NULL)
 					{
-						c += _putstr(str_temp);
+						len += _putstr(str_temp);
 						break;
 					}
-					c += _putstr("(Null)");
+					len += _putstr("(Null)");
 					break;
 				default:
 					break;
 			}
 		}
-		else
-		{
-			_putchar(format[i]);
-			c++;
-		}	
 		i++;
+		len++;
 	}
 	va_end(ls_args);
 	_putchar('\0');
-	return (i);
+	return (len);
 }
