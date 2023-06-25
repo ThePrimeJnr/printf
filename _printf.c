@@ -10,45 +10,52 @@ int _printf(const char *format, ...)
 {
 	va_list ls_args;
 	int i = 0, len = 0;
-	char *str_temp;
 
 	va_start(ls_args, format);
-	if (format)
-	{
-		while (format && format[i])
-		{
-			if (format[i] != '%')
-				len += _putchar(format[i]);
-			else
-			{
-				i++;
-				switch (format[i])
-				{
-					case 'c':
-						len += _putchar(va_arg(ls_args, int));
-						break;
-					case 's':
-						str_temp = va_arg(ls_args, char *);
-						len += _printf(str_temp);
-						break;
-					case '%':
-						len += _putchar('%');
-						break;
-					case '\0':
-						return (-1);
-					default:
-						len += _putchar('%');
-						len += _putchar(format[i]);
-						break;
-				}
-			}
-			i++;
-		}
-	}
-	else
+	if (!format)
 		return (-1);
+	while (format[i])
+	{
+		if (format[i] != '%')
+			len += _putchar(format[i]);
+		else
+		{
+			i++;
+			spec_handler(ls_args, format[i]);
+		}
+		i++;
+	}
 
 	va_end(ls_args);
 
 	return (len);
+}
+
+int spec_handler (va_list ls_args, char spec)
+{
+	int len = 0;
+	char *str_temp;
+
+	switch (spec)
+	{
+		case '\0':
+			return (-1);
+		case 'c':
+			len += _putchar(va_arg(ls_args, int));
+			break;
+		case 's':
+			str_temp = va_arg(ls_args, char *);
+			len += _printf(str_temp);
+			break;
+		case '%':
+			len += _putchar('%');
+			break;
+		default:
+			len += _putchar('%');
+			len += _putchar(spec);
+			break;
+	}
+
+	return (len);
+
 }
