@@ -5,6 +5,7 @@
  * @str: The string to be printed
  *
  * Return: Length of string printed - 1
+ */
 int _putstr(char *str)
 {
 	int i = 0;
