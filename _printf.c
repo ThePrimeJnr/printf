@@ -45,7 +45,7 @@ int spec_handler (va_list ls_args, char spec)
 			break;
 		case 's':
 			str_temp = va_arg(ls_args, char *);
-			len += _printf(str_temp);
+			len += _putstr(str_temp);
 			break;
 		case '%':
 			len += _putchar('%');
