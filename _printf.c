@@ -21,6 +21,8 @@ int _printf(const char *format, ...)
 		else
 		{
 			i++;
+			if (!format[i])
+				return (-1);
 			len += spec_handler(ls_args, format[i]);
 		}
 		i++;
@@ -38,8 +40,6 @@ int spec_handler (va_list ls_args, char spec)
 
 	switch (spec)
 	{
-		case '\0':
-			return (-1);
 		case 'c':
 			len += _putchar(va_arg(ls_args, int));
 			break;
