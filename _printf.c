@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 		else
 		{
 			i++;
-			spec_handler(ls_args, format[i]);
+			len += spec_handler(ls_args, format[i]);
 		}
 		i++;
 	}
