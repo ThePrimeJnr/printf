@@ -70,3 +70,39 @@ int _putint(int num)
 
 	return (len);
 }
+
+/**
+ * _putint - Prints an integer to standard output
+ * @num: The number to be printed
+ *
+ * Return: Length of string printed - 1
+ */
+int _putbit(int num)
+{
+	int val, len = 0;
+
+	if (!num)
+	{
+		len += _putchar('0');
+		return (len);
+	}
+	if (num == -2147483648)
+	{
+		len += _putstr("-2147483648");
+		return (len);
+	}
+	if (num < 0)
+	{
+		len += _putchar('-');
+		num = -num;
+	}
+
+	val = num % 2;
+	num = num / 2;
+	if (num)
+		len += _putbit(num);
+	len += _putchar(val + '0');
+
+	return (len);
+}
+

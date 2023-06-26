@@ -57,6 +57,9 @@ int _spec_handler (va_list ls_args, char spec)
 		case 'i':
 			len += _putint(va_arg(ls_args, int));
 			break;
+		case 'b':
+			len += _putbit(va_arg(ls_args, int));
+			break;
 		case '%':
 			len += _putchar('%');
 			break;
