@@ -72,8 +72,8 @@ int _putint(int num)
 }
 
 /**
- * _putint - Prints an integer to standard output
- * @num: The number to be printed
+ * _putbit - Prints an binary value to standard output
+ * @num: The unsigned number to be printed
  *
  * Return: Length of string printed - 1
  */
