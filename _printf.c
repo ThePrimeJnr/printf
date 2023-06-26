@@ -52,9 +52,11 @@ int _spec_handler (va_list ls_args, char spec)
 	else if (spec == 'd' || spec == 'i')
 		len += _putint(va_arg(ls_args, int));
 	else if (spec == 'b')
-		len += _putbit(va_arg(ls_args, int));
+		len += _putbit(va_arg(ls_args, unsigned int));
 	else if (spec == '%')
 		len += _putchar('%');
+	else if (spec == 'u')
+		len += _putuint(va_arg(ls_args, int));
 	else
 		len += _printf("%%%c", spec);
 
