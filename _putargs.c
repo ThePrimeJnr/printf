@@ -87,11 +87,11 @@ int _putbit(unsigned int num)
 		len += _putchar('0');
 		return (len);
 	}
-	if (num < 0)
+	/*if (num < 0)
 	{
 		for (val = 1 << 31; val > 0; val /= 2)
 			(num & val) ? _putchar('1') : _putchar('0');
-	}
+	}*/
 
 	val = num % 2;
 	num = num / 2;
