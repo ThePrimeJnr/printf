@@ -44,6 +44,7 @@ int _printf(const char *format, ...)
 int _spec_handler (va_list ls_args, char spec)
 {
 	int len = 0;
+
 	if (spec == 'c')
 		len += _putchar(va_arg(ls_args, int));
 	else if (spec == 's')
