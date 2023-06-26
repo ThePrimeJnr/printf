@@ -45,16 +45,18 @@ int _putstr(char *str)
 int _putint(int num)
 {
 	int val[20];
-	int i = 0, c = 0;
+	int i = 0, c = 0, len = 0;
 
 	if (num == 0)
 	{
 		_putchar('0');
-		return (1);
+		len = 1;
+		return (len);
 	}
 
 	if (num < 0)
 	{
+		len++;
 		_putchar('-');
 		num = -num;
 	}
@@ -65,7 +67,10 @@ int _putint(int num)
 		i++;
 	}
 	for (c = i - 1; c >= 0; c--)
+	{
 		_putchar(val[c]);
+		len++;
+	}
 
-	return (1);
+	return (len);
 }
