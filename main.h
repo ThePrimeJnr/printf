@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
+#define _INT_MIN -2147483648
+
 int _printf(const char *format, ...);
 int _putchar(char c);
 int _putstr(char *str);

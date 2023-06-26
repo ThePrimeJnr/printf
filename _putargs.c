@@ -88,12 +88,12 @@ int _putbit(int num)
 	}
 	if (num == -2147483648)
 	{
-		len += _putstr("-2147483648");
+		len += _putstr("10000000000000000000000000000000");
 		return (len);
 	}
 	if (num < 0)
 	{
-		len += _putchar('-');
+		len += _putchar('0');
 		num = -num;
 	}
 
