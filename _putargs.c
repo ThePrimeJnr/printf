@@ -51,7 +51,7 @@ int _putint(int num)
 		len += _putchar('0');
 		return (len);
 	}
-	if (num == -2147483648)
+	if (num == _INT_MIN)
 	{
 		len += _putstr("-2147483648");
 		return (len);
