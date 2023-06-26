@@ -44,30 +44,18 @@ int _printf(const char *format, ...)
 int _spec_handler (va_list ls_args, char spec)
 {
 	int len = 0;
-
-	switch (spec)
-	{
-		case 'c':
-			len += _putchar(va_arg(ls_args, int));
-			break;
-		case 's':
-			len += _putstr(va_arg(ls_args, char *));
-			break;
-		case 'd':
-		case 'i':
-			len += _putint(va_arg(ls_args, int));
-			break;
-		case 'b':
-			len += _putbit(va_arg(ls_args, int));
-			break;
-		case '%':
-			len += _putchar('%');
-			break;
-		default:
-			len += _putchar('%');
-			len += _putchar(spec);
-			break;
-	}
+	if (spec == 'c')
+		len += _putchar(va_arg(ls_args, int));
+	else if (spec == 's')
+		len += _putstr(va_arg(ls_args, char *));
+	else if (spec == 'd' || spec == 'i')
+		len += _putint(va_arg(ls_args, int));
+	else if (spec == 'b')
+		len += _putbit(va_arg(ls_args, int));
+	else if (spec == '%')
+		len += _putchar('%');
+	else
+		len += _printf("%%%c", spec);
 
 	return (len);
 
