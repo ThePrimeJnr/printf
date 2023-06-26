@@ -22,7 +22,7 @@ int _putstr(char *str)
 {
 	int i = 0;
 
-	if (str == NULL)
+	if (!str)
 		i = _putstr("(null)");
 	else
 	{
@@ -46,7 +46,7 @@ int _putint(int num)
 {
 	int val, len = 0;
 
-	if (num == 0)
+	if (!num)
 	{
 		len += _putchar('0');
 		return (len);
