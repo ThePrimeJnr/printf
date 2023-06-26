@@ -77,24 +77,20 @@ int _putint(int num)
  *
  * Return: Length of string printed - 1
  */
-int _putbit(int num)
+int _putbit(unsigned int num)
 {
-	int val, len = 0;
+	int len = 0;
+	unsigned int val;
 
 	if (!num)
 	{
 		len += _putchar('0');
 		return (len);
 	}
-	if (num == _INT_MIN)
-	{
-		len += _putstr("10000000000000000000000000000000");
-		return (len);
-	}
 	if (num < 0)
 	{
-		len += _putchar('0');
-		num = -num;
+		for (val = 1 << 31; val > 0; val /= 2)
+			(num & val) ? _putchar('1') : _putchar('0');
 	}
 
 	val = num % 2;
