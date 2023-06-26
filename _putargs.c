@@ -51,6 +51,11 @@ int _putint(int num)
 		len += _putchar('0');
 		return (len);
 	}
+	if (num == -2147483648)
+	{
+		len += _putstr("-2147483648");
+		return (len);
+	}
 	if (num < 0)
 	{
 		len += _putchar('-');
@@ -59,7 +64,7 @@ int _putint(int num)
 
 	val = num % 10;
 	num = num / 10;
-	if (num > 0)
+	if (num)
 		len += _putint(num);
 	len += _putchar(val + '0');
 
