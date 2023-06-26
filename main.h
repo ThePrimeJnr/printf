@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
-#define _INT_MIN (1 << (sizeof(int) * 8 - 1))
+#define _INT_MIN -2147483648
 
 int _printf(const char *format, ...);
 int _putchar(char c);
