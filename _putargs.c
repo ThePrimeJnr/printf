@@ -20,18 +20,12 @@ int _putchar(char c)
  */
 int _putstr(char *str)
 {
-	int i = 0;
+	int i;
 
 	if (!str)
-		i = _putstr("(null)");
-	else
-	{
-		while (str[i])
-		{
-			_putchar(str[i]);
-			i++;
-		}
-	}
+		return (_putstr("(null)"));
+	for (i = 0; str[i]; i++)
+		_putchar(str[i]);
 
 	return (i);
 }

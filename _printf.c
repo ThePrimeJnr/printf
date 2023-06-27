@@ -61,6 +61,8 @@ int _spec_handler (va_list ls_args, char spec)
 		len += _putoct(va_arg(ls_args, unsigned int));
 	else if (spec == 'x' || spec == 'X')
 		len += _puthex(va_arg(ls_args, int), spec);
+	else if (spec == 'S')
+		len += _putnospec(va_arg(ls_args, char *));
 	else
 		len += _printf("%%%c", spec);
 
