@@ -30,7 +30,6 @@ int _putnospec(char *str)
 /**
  * _puthex2 - Prints an hex to standard output
  * @num: The number to be printed
- * @alpha: alpha value
  * Return: Length of string printed - 1
  */
 int _puthex2(int num)
@@ -46,15 +45,15 @@ int _puthex2(int num)
 	if (num < 16)
 	{
 		_putchar('0');
-		_putchar(num + 87);
+		_putchar(num + 55);
 		return (2);
 	}
 
 	val = num % 16;
 	num = num / 16;
 
-	_puthex(num, 'x');
-	_puthex(val, 'x');
+	_puthex(num, 'X');
+	_puthex(val, 'X');
 
 	return (2);
 }
