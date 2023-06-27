@@ -66,14 +66,15 @@ int _puthex2(int num)
 int _putpointer(void *arg)
 {
 	int len = 0, i = 0;
-	unsigned long long address = (unsigned long long) arg;
-	unsigned long long digit, base = 16;
+	unsigned long long address = (unsigned long long)(unsigned long) arg;
+	unsigned long long digit;
 	int digits = sizeof(void *) * 2;
+
 	for (i = digits - 1; i >= 0; i--)
 	{
 		digit = (address >> (i * 4)) & 0xF;
-		len = _putchar(digit < 10 ? '0' + digit : 'A' + (digit - 10));
+		len = _putchar((char)(digit < 10 ? '0' + digit : 'A' + (digit - 10)));
 	}
-	
+
 	return (len);
 }
