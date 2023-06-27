@@ -72,12 +72,12 @@ int _putint(int num)
 }
 
 /**
- * _putbit - Prints an binary value to standard output
- * @num: The unsigned number to be printed
+ * _putuint - Prints an unsighed decimal to standard output
+ * @num: The number to be printed
  *
  * Return: Length of string printed - 1
  */
-int _putbit(unsigned int num)
+int _putuint(unsigned int num)
 {
 	int len = 0;
 	unsigned int val;
@@ -87,12 +87,11 @@ int _putbit(unsigned int num)
 		len += _putchar('0');
 		return (len);
 	}
-	val = num % 2;
-	num = num / 2;
+	val = num % 10;
+	num = num / 10;
 	if (num)
-		len += _putbit(num);
+		len += _putint(num);
 	len += _putchar(val + '0');
 
 	return (len);
 }
-

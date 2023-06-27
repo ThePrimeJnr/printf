@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * _putuint - Prints an unsighed decimal to standard output
- * @num: The number to be printed
+ * _putbit - Prints an binary value to standard output
+ * @num: The unsigned number to be printed
  *
  * Return: Length of string printed - 1
  */
-int _putuint(unsigned int num)
+int _putbit(unsigned int num)
 {
 	int len = 0;
 	unsigned int val;
@@ -16,10 +16,10 @@ int _putuint(unsigned int num)
 		len += _putchar('0');
 		return (len);
 	}
-	val = num % 10;
-	num = num / 10;
+	val = num % 2;
+	num = num / 2;
 	if (num)
-		len += _putint(num);
+		len += _putbit(num);
 	len += _putchar(val + '0');
 
 	return (len);
