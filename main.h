@@ -17,7 +17,7 @@ int _putoct(unsigned int num);
 int _puthex(unsigned int num, char alpha);
 int _putnospec(char *str);
 int _puthex2(int num);
-int _putsign(int num, char spec);
+int _putsign(int num);
 int _spec_handler (va_list ls_args, char spec);
 
 #endif /* PRINTF_H */

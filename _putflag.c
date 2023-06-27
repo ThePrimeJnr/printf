@@ -1,13 +1,9 @@
 #include "main.h"
 
-int _putsign(int num, char spec)
+int _putsign(int num)
 {
-	if (spec == 'd' || spec == 'i')
-	{
-		if (num <= 0)
-			return (_putint(num));
-		_putchar('+');
-		return(_putint(num) + 1);
-	}
-	return (0);
+	if (num <= 0)
+		return (_putint(num));
+	_putchar('+');
+	return(_putint(num) + 1);
 }
