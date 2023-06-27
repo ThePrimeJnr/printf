@@ -61,31 +61,20 @@ int _puthex(unsigned int num, char alpha)
 	int len = 0;
 	unsigned int val;
 
+	if (num < 10)
+		return (_putchar(num + '0'));
 	if (num < 16)
 	{
-		len += _putchar(_tohex(num, alpha));
-		return (len);
+		if (alpha == 'x')
+			return (_putchar(num + 87));
+		return (_putchar(num + 55));
 	}
 	val = num % 16;
 	num = num / 16;
-	len += _puthex(num, alpha);
-	len += _putchar(_tohex(val, alpha));
+	if (num)
+		len += _puthex(num, alpha);
+	len += _puthex(val, alpha);
 
 	return (len);
 }
 
-/**
- * _tohex - convertas a decimal num to hexadecimal
- * @num: value to be converted
- * @alpha: aplha value
- * Return: hexadecimal char
- */
-char _tohex(unsigned int num, char alpha)
-{
-	if (num <= 9)
-		return (num + '0');
-	else if (num >= 10 && num <= 15)
-		return (num - 10 + alpha);
-	else
-		return ('\0');
-}
