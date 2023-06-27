@@ -82,7 +82,7 @@ int _puthex(unsigned int num, char alpha)
  */
 char _tohex(unsigned int num, char alpha)
 {
-	if (num >= 0 && num <= 9)
+	if (num <= 9)
 		return (num + '0');
 	else if (num >= 10 && num <= 15)
 		return (num - 10 + alpha);
