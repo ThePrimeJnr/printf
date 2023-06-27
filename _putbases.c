@@ -53,23 +53,23 @@ int _putoct(unsigned int num)
 /**
  * _puthex - Prints an hex to standard output
  * @num: The number to be printed
- *
+ * @alpha: alpha value
  * Return: Length of string printed - 1
  */
-int _puthex(int num)
+int _puthex(int num, char alpha)
 {
 	int len = 0;
 	unsigned int val;
 
 	if (num < 16)
 	{
-		len += _putchar(_tohex(num));
+		len += _putchar(_tohex(num, alpha));
 		return (len);
 	}
 	val = num % 16;
 	num = num / 16;
-	len += _puthex(num);
-	len += _putchar(_tohex(val));
+	len += _puthex(num, alpha);
+	len += _putchar(_tohex(val, alpha));
 
 	return (len);
 }
@@ -77,14 +77,15 @@ int _puthex(int num)
 /**
  * _tohex - convertas a decimal num to hexadecimal
  * @num: value to be converted
+ * @alpha: aplha value
  * Return: hexadecimal char
  */
-char _tohex(int num)
+char _tohex(int num, char alpha)
 {
 	if (num >= 0 && num <= 9)
 		return (num + '0');
 	else if (num >= 10 && num <= 15)
-		return (num - 10 + 'a');
+		return (num - 10 + alpha);
 	else
 		return ('\0');
 }

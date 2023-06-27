@@ -14,8 +14,8 @@ int _putint(int num);
 int _putbit(unsigned int num);
 int _putuint(unsigned int num);
 int _putoct(unsigned int num);
-int _puthex(int num);
-char _tohex(int num);
+int _puthex(int num, char alpha);
+char _tohex(int num, char alpha);
 int _spec_handler (va_list ls_args, char spec);
 
 #endif /* PRINTF_H */
