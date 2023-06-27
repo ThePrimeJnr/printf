@@ -50,3 +50,27 @@ int _putoct(unsigned int num)
 	return (len);
 }
 
+/**
+ * _puthex - Prints an hex to standard output
+ * @num: The number to be printed
+ *
+ * Return: Length of string printed - 1
+ */
+int _puthex(int num)
+{
+	int len = 0;
+	unsigned int val;
+
+	if (num < 16)
+	{
+		len += _putint(num);
+		return (len);
+	}
+	val = num % 16;
+	num = num / 16;
+	if (num)
+		len += _putoct(num);
+	len += _putchar(val + '0');
+
+	return (len);
+}
