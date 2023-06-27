@@ -19,7 +19,11 @@ int _putnospec(char *str);
 int _puthex2(int num);
 int _putsign(int num);
 int _putspace(int num);
+<<<<<<< Updated upstream
 int _putpointer(void *arg);
+=======
+int _puthash(unsigned int num, char base);
+>>>>>>> Stashed changes
 int _spec_handler (va_list ls_args, char spec);
 
 #endif /* PRINTF_H */

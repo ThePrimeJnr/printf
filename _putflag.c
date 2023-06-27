@@ -26,3 +26,26 @@ int _putspace(int num)
 	return (_putint(num) + 1);
 }
 
+int _puthash(unsigned int num, char base)
+{
+	int len = 0;
+
+	if (base == 'o')
+	{
+		len += _putchar('O');
+		len += _putoct(num);
+	}
+	else if (base == 'x')
+	{
+		len += _putstr("Ox");
+		len += _puthex(num, 'x');
+	}
+	else if (base == 'X')
+	{
+		len += _putstr("OX");
+		len += _puthex(num, 'X');
+	}
+
+	return (len);
+}
+

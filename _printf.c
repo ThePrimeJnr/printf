@@ -23,9 +23,13 @@ int _printf(const char *format, ...)
 			i++;
 			if (!format[i])
 				return (-1);
-			len += _spec_handler(ls_args, format[i]);
-			if (format[i] == '+' || format[i] == ' ')
+			if (format[i] == '+' || format[i] == ' ' || format[i] == '#')
+			{
 				i++;
+				len += _spec_handler(ls_args, format[i]);
+			}
+			else
+				len += _spec_handler(ls_args, format[i]);
 		}
 		i++;
 	}
@@ -71,6 +75,8 @@ int _spec_handler (va_list ls_args, char spec)
 		len += _putsign(va_arg(ls_args, int));
 	else if (spec == ' ')
 		len += _putspace(va_arg(ls_args, int));
+	else if (spec == '#')
+		len += _puthash(va_arg(ls_args, unsigned int), spec);
 	else
 		len += _printf("%%%c", spec);
 
