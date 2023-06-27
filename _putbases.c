@@ -63,14 +63,28 @@ int _puthex(int num)
 
 	if (num < 16)
 	{
-		len += _putint(num);
+		len += _putchar(_tohex(num));
 		return (len);
 	}
 	val = num % 16;
 	num = num / 16;
-	if (num)
-		len += _putoct(num);
-	len += _putchar(val + '0');
+	len += _puthex(num);
+	len += _putchar(_tohex(val));
 
 	return (len);
+}
+
+/**
+ * _tohex - convertas a decimal num to hexadecimal
+ * @num
+ * Return: hexadecimal char
+ */
+char _tohex(int num)
+{
+	if (num >= 0 && num <= 9)
+		return num + '0';
+	else if (num >= 10 && num <= 15)
+		return num - 10 + 'A';
+	else
+		return '\0';
 }
