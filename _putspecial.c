@@ -24,7 +24,7 @@ int _putnospec(char *str)
 		len += _putchar(str[i]);
 	}
 
-	return (i);
+	return (len);
 }
 
 /**
