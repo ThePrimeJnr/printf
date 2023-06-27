@@ -65,6 +65,8 @@ int _spec_handler (va_list ls_args, char spec)
 		len += _puthex(va_arg(ls_args, int), spec);
 	else if (spec == 'S')
 		len += _putnospec(va_arg(ls_args, char *));
+	else if (spec == 'p')
+		len += _putpointer(va_arg(ls_args, void *));
 	else if (spec == '+')
 		len += _putsign(va_arg(ls_args, int));
 	else if (spec == ' ')
