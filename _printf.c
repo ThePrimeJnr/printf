@@ -24,6 +24,8 @@ int _printf(const char *format, ...)
 			if (!format[i])
 				return (-1);
 			len += _spec_handler(ls_args, format[i]);
+			if (format[i] == '+')
+				i++;
 		}
 		i++;
 	}
@@ -63,6 +65,8 @@ int _spec_handler (va_list ls_args, char spec)
 		len += _puthex(va_arg(ls_args, int), spec);
 	else if (spec == 'S')
 		len += _putnospec(va_arg(ls_args, char *));
+	else if (spec == '+')
+		len += _putsign(va_arg(ls_args, int), 'd');
 	else
 		len += _printf("%%%c", spec);
 

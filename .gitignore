@@ -1,4 +1,4 @@
 a.out
 .*.swp
-main.c
-test.c
+main*.c
+test*
