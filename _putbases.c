@@ -56,7 +56,7 @@ int _putoct(unsigned int num)
  * @alpha: alpha value
  * Return: Length of string printed - 1
  */
-int _puthex(int num, char alpha)
+int _puthex(unsigned int num, char alpha)
 {
 	int len = 0;
 	unsigned int val;
@@ -80,7 +80,7 @@ int _puthex(int num, char alpha)
  * @alpha: aplha value
  * Return: hexadecimal char
  */
-char _tohex(int num, char alpha)
+char _tohex(unsigned int num, char alpha)
 {
 	if (num >= 0 && num <= 9)
 		return (num + '0');
