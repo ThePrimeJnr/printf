@@ -9,6 +9,7 @@
 int _printf(const char *format, ...)
 {
 	va_list ls_args;
+	char flag;
 	int i = 0, len = 0;
 
 	va_start(ls_args, format);
@@ -25,8 +26,9 @@ int _printf(const char *format, ...)
 				return (-1);
 			if (format[i] == '+' || format[i] == ' ' || format[i] == '#')
 			{
+				flag = format[i];
 				i++;
-				len += _spec_handler(ls_args, format[i]);
+				len += _flag_handler(ls_args, flag, format[i]);
 			}
 			else
 				len += _spec_handler(ls_args, format[i]);
@@ -71,14 +73,30 @@ int _spec_handler (va_list ls_args, char spec)
 		len += _putnospec(va_arg(ls_args, char *));
 	/*else if (spec == 'p')*/
 	/*	len += _putpointer(va_arg(ls_args, void *));*/
-	else if (spec == '+')
-		len += _putsign(va_arg(ls_args, int));
-	else if (spec == ' ')
-		len += _putspace(va_arg(ls_args, int));
-	else if (spec == '#')
-		len += _puthash(va_arg(ls_args, unsigned int), spec);
 	else
 		len += _printf("%%%c", spec);
 
 	return (len);
 }
+
+/**
+ * _flag_handler - handles the specifier passed to _printf
+ *
+ * @num: num
+ * @spec: the specifier
+ * @base: base
+ * Return: length of handle argument
+ */
+int _flag_handler(va_list ls_args, char spec, char base)
+{
+	int len = 0;
+
+	if (spec == '+')
+		len += _putsign(va_arg(ls_args, int));
+	else if (spec == ' ')
+		len += _putspace(va_arg(ls_args, int));
+	else if (spec == '#')
+		len += _puthash(va_arg(ls_args, unsigned int), base);
+
+	return (len);
+}	

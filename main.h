@@ -22,5 +22,6 @@ int _putspace(int num);
 /*int _putpointer(void *arg);*/
 int _puthash(unsigned int num, char base);
 int _spec_handler (va_list ls_args, char spec);
+int _flag_handler(va_list ls_args, char spec, char base);
 
 #endif /* PRINTF_H */

@@ -37,17 +37,17 @@ int _puthash(unsigned int num, char base)
 
 	if (base == 'o')
 	{
-		len += _putchar('O');
+		len += _putchar('0');
 		len += _putoct(num);
 	}
 	else if (base == 'x')
 	{
-		len += _putstr("Ox");
+		len += _putstr("0x");
 		len += _puthex(num, 'x');
 	}
 	else if (base == 'X')
 	{
-		len += _putstr("OX");
+		len += _putstr("0X");
 		len += _puthex(num, 'X');
 	}
 
