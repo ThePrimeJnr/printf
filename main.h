@@ -19,7 +19,7 @@ int _putnospec(char *str);
 int _puthex2(int num);
 int _putsign(int num);
 int _putspace(int num);
-int _putpointer(void *arg);
+/*int _putpointer(void *arg);*/
 int _puthash(unsigned int num, char base);
 int _spec_handler (va_list ls_args, char spec);
 

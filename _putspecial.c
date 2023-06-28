@@ -57,17 +57,16 @@ int _puthex2(int num)
 
 	return (2);
 }
-
 /**
  * _putpointer - prints the address of variable
  * @arg: void argument
  * Return: length of string printed
- */
+ *
 int _putpointer(void *arg)
 {
 	int len = 0, i = 0;
-	unsigned long long address = (unsigned long long)(unsigned long) arg;
-	unsigned long long digit;
+	unsigned int address = (unsigned int)(unsigned int) arg;
+	unsigned int digit;
 	int digits = sizeof(void *) * 2;
 
 	for (i = digits - 1; i >= 0; i--)
@@ -77,4 +76,4 @@ int _putpointer(void *arg)
 	}
 
 	return (len);
-}
+}*/
