@@ -13,7 +13,7 @@ int _putsign(int num, char spec)
 
 	if (spec == 'd' || spec == 'i')
 	{
-		if (num > 0)
+		if (num >= 0)
 			len += _putchar('+');
 		len += _putint(num);
 	}
@@ -36,7 +36,7 @@ int _putspace(int num, char spec)
 
 	if (spec == 'd' || spec == 'i')
 	{
-		if (num > 0)
+		if (num >= 0)
 			len += _putchar(' ');
 		len += _putint(num);
 	}
