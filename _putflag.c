@@ -25,7 +25,12 @@ int _putspace(int num)
 	_putchar(' ');
 	return (_putint(num) + 1);
 }
-
+/**
+ * _puthash - prints a hash
+ * @num: number
+ * @base: base of number
+ * Return: len
+ */
 int _puthash(unsigned int num, char base)
 {
 	int len = 0;
