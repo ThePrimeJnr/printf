@@ -2,29 +2,50 @@
 
 /**
  * _putsign - prints a sign
+ *
  * @num: num signs
- * Return: le
+ * @spec: the specifier
+ * Return: length
  */
-int _putsign(int num)
+int _putsign(int num, char spec)
 {
-	if (num <= 0)
-		return (_putint(num));
-	_putchar('+');
-	return (_putint(num) + 1);
+	int len = 0;
+
+	if (spec == 'd' || spec == 'i')
+	{
+		if (num > 0)
+			len += _putchar('+');
+		len += _putint(num);
+	}
+	else if (spec == 'u')
+		len += _putuint(num);
+
+	return (len);
 }
 
 /**
  * _putspace - prints a space
+ *
  * @num: number of spaces
+ * @spec: the specifier
  * Return: len
  */
-int _putspace(int num)
+int _putspace(int num, char spec)
 {
-	if (num <= 0)
-		return (_putint(num));
-	_putchar(' ');
-	return (_putint(num) + 1);
+	int len = 0;
+
+	if (spec == 'd' || spec == 'i')
+	{
+		if (num > 0)
+			len += _putchar(' ');
+		len += _putint(num);
+	}
+	else if (spec == 'u')
+		len += _putuint(num);
+
+	return (len);
 }
+
 /**
  * _puthash - prints a hash
  * @num: number

@@ -82,7 +82,7 @@ int _spec_handler (va_list ls_args, char spec)
 /**
  * _flag_handler - handles the specifier passed to _printf
  *
- * @num: num
+ * @ls_args: List of variadic arguments
  * @spec: the specifier
  * @base: base
  * Return: length of handle argument
@@ -92,11 +92,12 @@ int _flag_handler(va_list ls_args, char spec, char base)
 	int len = 0;
 
 	if (spec == '+')
-		len += _putsign(va_arg(ls_args, int));
+		len += _putsign(va_arg(ls_args, int), base);
 	else if (spec == ' ')
-		len += _putspace(va_arg(ls_args, int));
+
+		len += _putspace(va_arg(ls_args, int), base);
 	else if (spec == '#')
 		len += _puthash(va_arg(ls_args, unsigned int), base);
 
 	return (len);
-}	
+}
